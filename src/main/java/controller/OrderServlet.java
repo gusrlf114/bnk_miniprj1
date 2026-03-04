@@ -42,7 +42,7 @@ public class OrderServlet extends HttpServlet {
             // 등록 성공 시 알림창 띄우고 메인화면(index.jsp)으로 이동
             out.println("<script>");
             out.println("alert('주문등록이 정상적으로 등록 되었습니다!');");
-            out.println("location.href='index.jsp';"); // 시작화면 파일명에 맞게 변경하세요.
+            out.println("location.href='main.jsp';"); // 시작화면 파일명에 맞게 변경하세요.
             out.println("</script>");
         } else {
             // 실패 시 뒤로 가기

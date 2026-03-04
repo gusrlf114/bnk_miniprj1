@@ -66,14 +66,14 @@ footer {
 
 			<p class="head">할인점 주문프로그램 ver 1.0</p>
 			<ul>
-				<li><a href="#">주문등록</a></li>
-				<li><a href="#">주문목록조회</a></li>
+				<li><a href="orderForm.jsp">주문등록</a></li>
+				<li><a href="list.jsp">주문목록조회</a></li>
 				<li><a href="shoplist.jsp">점포별주문현황</a></li>
-				<li><a href="#">제품코드조회</a></li>
-				<li><a href="#">홈으로</a></li>
+				<li><a href="codelist.jsp">제품코드조회</a></li>
+				<li><a href="main.jsp">홈으로</a></li>
 
 			</ul>
-
+	
 		</header>
 
 		<section>

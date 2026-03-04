@@ -43,9 +43,16 @@ header li {
 	list-style: none;
 }
 
-main {
-	height: 300px;
+
+
+
+section {
+	height: auto;
 	background-color: rgb(255, 250, 243);
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	padding-top: 50px;
 }
 
 .title {
@@ -54,12 +61,12 @@ main {
 	margin-bottom: 20px;
 }
 
-#table1 {
+.table1 {
 	width: 500px;
 	background-color: white;
 }
 
-#table1 td {
+.table1 td {
 	padding: 5px;
 	text-align: center;
 }
@@ -74,10 +81,10 @@ main {
 
 			<p class="head">할인점 주문프로그램 ver 1.0</p>
 			<ul>
-				<li><a href="#">주문등록</a></li>
-				<li><a href="#">주문목록조회</a></li>
-				<li><a href="codelist.jsp">점포별주문현황</a></li>
-				<li><a href="shoplist.jsp">제품코드조회</a></li>
+				<li><a href="orderForm.jsp">주문등록</a></li>
+				<li><a href="list.jsp">주문목록조회</a></li>
+				<li><a href="shoplist.jsp">점포별주문현황</a></li>
+				<li><a href="codelist.jsp">제품코드조회</a></li>
 				<li><a href="main.jsp">홈으로</a></li>
 
 			</ul>
@@ -97,13 +104,9 @@ main {
 
 		Connection con = DriverManager.getConnection(url, user, upw);
 
-		String sql = "SELECT pcode, "
-		           + "pname, "
-		           + "to_char(cost, '999,999') as cost, "
-		           + "to_char(SUM(cost) * 0.9, '999,999,999') AS sale1, "
-		           + "to_char(SUM(cost) * 0.85, '999,999,999') AS sale2 "
-		           + "FROM tbl_product_202101 "
-		           + "GROUP BY pcode, pname, cost";
+		String sql = "SELECT pcode, " + "pname, " + "to_char(cost, '999,999') as cost, "
+				+ "to_char(SUM(cost) * 0.9, '999,999,999') AS sale1, " + "to_char(SUM(cost) * 0.85, '999,999,999') AS sale2 "
+				+ "FROM tbl_product_202101 " + "GROUP BY pcode, pname, cost";
 
 		Statement stmt = con.createStatement();
 
@@ -134,11 +137,11 @@ main {
 				%>
 
 				<tr>
-					<td><%= rs.getString("pcode")%></td>
-					<td><%= rs.getString("pname") %></td>
-					<td><%= rs.getString("cost") %></td>
-					<td><%= rs.getString("sale1") %></td>
-					<td><%= rs.getString("sale2") %></td>
+					<td><%=rs.getString("pcode")%></td>
+					<td><%=rs.getString("pname")%></td>
+					<td><%=rs.getString("cost")%></td>
+					<td><%=rs.getString("sale1")%></td>
+					<td><%=rs.getString("sale2")%></td>
 				</tr>
 
 				<%
@@ -147,8 +150,8 @@ main {
 				psmt.close();
 				con.close();
 				%>
-				
-				
+
+
 
 
 			</table>
