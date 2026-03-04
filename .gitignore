@@ -1,5 +1,7 @@
 .settings/
 build/
+bin/
 .classpath
 .project
+.metadata/
 *.class
